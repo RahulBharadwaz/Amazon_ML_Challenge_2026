@@ -64,8 +64,7 @@ To parallelize candidate generation across machines, use `candidates --country <
 | `scripts/` | `merge_submission.py`, `validate_submission.py` (official), `evaluate_f05.py`, `analyze_stage1_misses.py` |
 | `models/v6_submission/` | Exact artefacts behind the submission (canonicalizer, IDF, encoder, stage-1 and stage-2 LightGBM, config) |
 | `output/` | Final test predictions |
-| `results/v6/`, `results/v5/` | Gate summaries, logs, missed-link samples, and V5 baselines |
-| `docs/` | V6 methodology, conceptual deep dive, `challenge/` (problem statement, rules, EDA), `legacy/` (V5 docs) |
+| `results/v6/` | Gate summaries, logs, missed-link samples, and validation metrics |
+| `docs/` | V6 methodology, conceptual deep dive, `challenge/` (problem statement, rules, EDA) |
 | `infra/` | EC2 session tooling, IAM CloudFormation template, launch logs |
-| `legacy/v5/` | Superseded V5 pipeline and its submission scaffold |
 | `dataset/`, `work/`, `.secrets/` | Gitignored: raw data, regenerable intermediates, SSH key |
