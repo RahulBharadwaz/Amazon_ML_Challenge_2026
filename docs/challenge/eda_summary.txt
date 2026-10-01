@@ -1,0 +1,147 @@
+==========================================================================================
+AMAZON ML CHALLENGE 2026 - EXPLORATORY DATA ANALYSIS (EDA) REPORT
+==========================================================================================
+Timestamp: 2026-09-25 03:00:53
+
+------------------------------------------------------------------------------------------
+1. GROUND TRUTH ANALYSIS ('dataset/train/train_ground_truth.tsv')
+------------------------------------------------------------------------------------------
+• Total Ground Truth Rows       : 2,206,821
+• Singletons (0 matches / empty): 123,247 (5.58%)
+• Non-Singletons (>= 1 matches) : 2,083,574 (94.42%)
+
+• Match Count Statistics (per non-singleton Source 1 entity):
+  - Minimum matches : 1
+  - Median matches  : 4.0
+  - Mean matches    : 3.67
+  - Maximum matches : 11
+
+• Breakdown of Matched IDs Origin:
+  - Total Candidate Matches : 7,638,365
+  - Source 2 ('S2-') matches: 3,693,619 (48.36%)
+  - Source 3 ('S3-') matches: 3,944,746 (51.64%)
+
+------------------------------------------------------------------------------------------
+2. SOURCE DATASETS PROFILING (TRAIN & TEST)
+------------------------------------------------------------------------------------------
+Dataset File     |   Total Rows | Country Distribution             | Missing Name | Missing Addr
+------------------------------------------------------------------------------------------
+train_source1    |    2,206,821 | US: 60.0%, India: 40.0%          |    0.00% (0) |    0.00% (0)
+train_source2    |    5,034,616 | US: 59.9%, India: 40.1%          |    0.00% (1) | 3.36% (168,967)
+train_source3    |    5,285,603 | US: 60.0%, India: 40.0%          |    0.00% (0) | 3.33% (175,916)
+test_source1     |    1,732,544 | India: 46.8%, US: 38.3%, France: 15.0% |    0.00% (0) |    0.00% (0)
+test_source2     |    4,887,273 | India: 47.3%, US: 38.3%, France: 14.4% |    0.00% (0) | 2.65% (129,408)
+test_source3     |    5,082,316 | India: 47.3%, US: 38.3%, France: 14.4% |    0.00% (0) | 2.68% (136,098)
+
+Key Data Hygiene & Distribution Observations:
+  • Country Shifts:
+    - Training files strictly feature 'US' (~60%) and 'India' (~40%).
+    - Test files introduce 'France' (~14.4% - 15.0%), alongside India (~47%) and US (~38%).
+    - Blocking rules MUST handle France and French address conventions.
+  • Missing Values:
+    - Source 1 (Reference) has 0.00% missing values across all columns.
+    - Source 2 and Source 3 exhibit 2.65% to 3.36% missing addresses.
+    - Business Name is virtually 100% complete (only 1 missing record in train_source2).
+
+------------------------------------------------------------------------------------------
+3. REAL-WORLD MATCH CLUSTER INSPECTION (3 SAMPLE NON-SINGLETONS)
+------------------------------------------------------------------------------------------
+Cluster #1 [Reference S1 ID: S1-654212169]
+------------------------------------------------------------------------------------------
+  Source    | Entity ID      | Country | Business Name                  | Business Address                        
+  ----------------------------------------------------------------------------------------
+  S1 (Ref)  | S1-654212169   | US      | Upper Select Digital LLC       | 5635 Abrams View Trail, TN, Tallassee   
+  Source 2  | S2-164250475   | US      | Upper Sélect Digital LLC       | 5635 ABRAMS VIEW TRL, TALLASSEE, TN     
+  Source 2  | S2-851858121   | US      | Upper Select Digital L.L.C.    | 5635 ABRAMS VIEW TRAIL, TALLASSEE, TN   
+  Source 2  | S2-825235552   | US      | UPPER SELECT  DITIL LLC        | 5635 ABRAMS VIEW TRL, TALLASSEE, TN     
+
+  Full Record Comparison:
+    • [S1] S1-654212169:
+         Name    : Upper Select Digital LLC
+         Address : 5635 Abrams View Trail, TN, Tallassee
+         Country : US
+    • [Source 2] S2-164250475:
+         Name    : Upper Sélect Digital LLC
+         Address : 5635 ABRAMS VIEW TRL, TALLASSEE, TN
+         Country : US
+    • [Source 2] S2-851858121:
+         Name    : Upper Select Digital L.L.C.
+         Address : 5635 ABRAMS VIEW TRAIL, TALLASSEE, TN
+         Country : US
+    • [Source 2] S2-825235552:
+         Name    : UPPER SELECT  DITIL LLC
+         Address : 5635 ABRAMS VIEW TRL, TALLASSEE, TN
+         Country : US
+
+Cluster #2 [Reference S1 ID: S1-273477251]
+------------------------------------------------------------------------------------------
+  Source    | Entity ID      | Country | Business Name                  | Business Address                        
+  ----------------------------------------------------------------------------------------
+  S1 (Ref)  | S1-273477251   | US      | Quality Good, Inc              | 1860 Warner Road, Tempe, AZ             
+  Source 2  | S2-104824572   | US      | Quality Good,  Inc             | 01860 WARNER RD, TEMPE, AZ              
+  Source 2  | S2-777897978   | US      | QUALITY GÓOD, INC              | AZ, TEMPE, 01860 WARNER ROAD            
+  Source 3  | S3-793590751   | US      | Quality Good, Inc.             |                                         
+  Source 3  | S3-932599596   | US      | Quality Gsd,  Inc              |                                         
+  Source 3  | S3-478563340   | US      | Quality Good,                  |                                         
+
+  Full Record Comparison:
+    • [S1] S1-273477251:
+         Name    : Quality Good, Inc
+         Address : 1860 Warner Road, Tempe, AZ
+         Country : US
+    • [Source 2] S2-104824572:
+         Name    : Quality Good,  Inc
+         Address : 01860 WARNER RD, TEMPE, AZ
+         Country : US
+    • [Source 2] S2-777897978:
+         Name    : QUALITY GÓOD, INC
+         Address : AZ, TEMPE, 01860 WARNER ROAD
+         Country : US
+    • [Source 3] S3-793590751:
+         Name    : Quality Good, Inc.
+         Address : 
+         Country : US
+    • [Source 3] S3-932599596:
+         Name    : Quality Gsd,  Inc
+         Address : 
+         Country : US
+    • [Source 3] S3-478563340:
+         Name    : Quality Good,
+         Address : 
+         Country : US
+
+Cluster #3 [Reference S1 ID: S1-891214098]
+------------------------------------------------------------------------------------------
+  Source    | Entity ID      | Country | Business Name                  | Business Address                        
+  ----------------------------------------------------------------------------------------
+  S1 (Ref)  | S1-891214098   | US      | Davisson and Marez Audio Insta | 235 12th Avenue, Unit DUPL A, Anchorage,
+  Source 2  | S2-219538786   | US      | Davisson and Marez Audio Insta | 235 TWELFTH AVENUE, <NULL>, ANCHORAGE, A
+  Source 2  | S2-348857122   | US      | Center Davisson and Marez Audi | 235 12TH AVE, <NULL>, ANCHORAGE, AK     
+  Source 3  | S3-517110980   | US      | Davisson and Mlaz Audio Instal | Unit DUPL A, 235 12nd Ave, Alaska, Ancho
+  Source 3  | S3-318623819   | US      | Davisson                       | Unit DUPL A, AK, 235 12th Avenue, Anchor
+
+  Full Record Comparison:
+    • [S1] S1-891214098:
+         Name    : Davisson and Marez Audio Installation LLC
+         Address : 235 12th Avenue, Unit DUPL A, Anchorage, AK
+         Country : US
+    • [Source 2] S2-219538786:
+         Name    : Davisson and Marez Audio Installation
+         Address : 235 TWELFTH AVENUE, <NULL>, ANCHORAGE, AK
+         Country : US
+    • [Source 2] S2-348857122:
+         Name    : Center Davisson and Marez Audio LLC
+         Address : 235 12TH AVE, <NULL>, ANCHORAGE, AK
+         Country : US
+    • [Source 3] S3-517110980:
+         Name    : Davisson and Mlaz Audio Installation LLC
+         Address : Unit DUPL A, 235 12nd Ave, Alaska, Anchorage
+         Country : US
+    • [Source 3] S3-318623819:
+         Name    : Davisson
+         Address : Unit DUPL A, AK, 235 12th Avenue, Anchorage
+         Country : US
+
+==========================================================================================
+END OF EDA SUMMARY REPORT
+==========================================================================================
