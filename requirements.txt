@@ -1,0 +1,13 @@
+# Pinned dependencies for Amazon ML Challenge 2026 - Hackathon Tensors
+# Compatible with Python 3.10, 3.11, and 3.12 (Linux / Windows / macOS)
+
+numpy>=1.26.0,<=2.2.3
+scipy>=1.11.0,<=1.16.1
+pandas>=2.0.0,<=2.2.3
+pyarrow>=14.0.0
+rapidfuzz>=3.6.0,<=3.14.5
+lightgbm>=4.0.0,<=4.7.0
+faiss-cpu>=1.8.0
+sparse_dot_topn>=1.1.0
+torch>=2.2.0
+psutil>=5.9.0,<=7.0.0

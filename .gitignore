@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE & Editor settings
+.cursor/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Secrets & Cloud Session state
+.secrets/
+*.pem
+*.key
+.ec2_session/
+
+# Competition Data & Big Datasets (~2.4 GB)
+dataset/
+*.tsv
+*.csv
+
+# Intermediate Cache & Work Dir (~5.3 GB)
+work/
+*.npy
+*.npz
+*.parquet
+*.db
+*.sqlite
+*.sqlite3
+
+# Large Model Binary Weights (>100 MB GitHub limit)
+*.pt
+*.pth
+*.bin
+*.pkl
+
+# Competition Output & Large Submissions (>100 MB)
+output/
+*.zip
+*.tar.gz
+*.7z
+*.rar
