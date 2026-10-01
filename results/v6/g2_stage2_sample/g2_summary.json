@@ -1,0 +1,41 @@
+{
+  "tau": 0.78,
+  "tune_macro_f05": 0.9878217346175545,
+  "holdout_macro_f05": 0.98831599165767,
+  "holdout_entities": 13085,
+  "singletons": {
+    "n": 748,
+    "correct_empty": 0.9919786096256684
+  },
+  "non_singletons": {
+    "n": 12337,
+    "macro_f05": 0.988093924847257,
+    "precision": 0.993279314643909,
+    "recall": 0.9761149195026961,
+    "predicted_empty": 0.001945367593418173
+  },
+  "by_country": {
+    "India": 0.9885407306278885,
+    "US": 0.9881661656775244
+  },
+  "ceiling_macro_f05_perfect_decisions": 0.9994505820497971,
+  "feature_gain_top15": {
+    "p1_margin_t": 11672019,
+    "p1": 1705224,
+    "p1_gap_s1": 265504,
+    "cos_enc": 142082,
+    "gap_addr": 106829,
+    "max_enc": 100444,
+    "addr_canon_tset": 100217,
+    "len_t": 79649,
+    "jw": 57135,
+    "core_tset": 52091,
+    "addr_tset": 41599,
+    "fz_tsort": 38330,
+    "num_conflict": 36388,
+    "max_name": 31638,
+    "cos_raw": 30351
+  },
+  "runtime_s": 245.4678089618683,
+  "peak_mem_mb": 1592.23828125
+}

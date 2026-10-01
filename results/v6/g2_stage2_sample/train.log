@@ -1,0 +1,22 @@
+[      4s | 1,032 MB (peak 1,134)] prep: 131,988 Source 1 records (frac 0.06)
+[     17s | 1,585 MB (peak 1,610)] [India] index over 52,680 Source 1 records built in 11s
+[     75s | 1,330 MB (peak 2,198)] [India] chunk 0: 50,000 targets | kept 131,670 of 2,435,025 pairs
+[    377s | 769 MB (peak 2,198)] [US] index over 79,308 Source 1 records built in 31s
+[    407s | 1,491 MB (peak 2,198)] [US] chunk 0: 469,717 targets | kept 1,201,162 of 22,907,709 pairs
+[    865s | 708 MB (peak 2,295)] candidates done: {"targets": 1049156, "pairs_scored": 53765762, "pairs_kept": 2303085, "linked_targets": 457261, "linked_kept": 456584, "runtime_s": 864.870135307312, "peak_mem_mb": 2294.5703125, "candidate_recall": 0.998519445130899}
+[     14s | 1,485 MB (peak 1,486)] stage-2 pairs 2,303,085 over 22 chunks | targets 1,001,607
+[     18s | 936 MB (peak 1,486)]   stage-2 features: chunk 1/22 (4s)
+[    119s | 1,285 MB (peak 1,486)] stage-2 training rows 1,842,019 (365,600 pos) | tune rows 231,362
+[    226s | 837 MB (peak 1,592)] stage-2 model: 529 trees, tune logloss 0.01368
+========================================================================================
+  GATE G2 - V6 stage-2 matching, macro F0.5 on held-out Source 1 entities
+========================================================================================
+  Held-out entities 13,085 | threshold tau 0.78 (tuned on tune fold, tune F0.5 0.9878)
+  HOLDOUT MACRO F0.5                      : 0.9883
+  Non-singletons: F0.5 0.9881 | P 0.9933 | R 0.9761 | predicted empty 0.19%
+  Singletons: 748 | correctly empty 0.9920
+  By country: India 0.9885 | US 0.9882
+  Ceiling with perfect decisions on these candidates: 0.9995
+  Top features: ['p1_margin_t', 'p1', 'p1_gap_s1', 'cos_enc', 'gap_addr', 'max_enc', 'addr_canon_tset', 'len_t', 'jw', 'core_tset']
+  Runtime 245s | peak process-tree memory 1,592 MB
+========================================================================================
