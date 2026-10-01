@@ -1,0 +1,12 @@
+Required Deliverables:
+1. Leaderboard Submission: output/matching_results.tsv (Columns: source1_entity_id \t matched_entity_ids).
+   - Exactly one row per test Source 1 entity.
+   - matched_entity_ids: comma-separated list of S2 and S3 IDs (no spaces, no quotes, no S1 self-matches).
+2. Blocking Audit File: output/candidate_pairs.tsv (Columns: source1_entity_id \t candidate_entity_ids).
+   - Contains candidate IDs considered before final scoring. All IDs in matching_results.tsv MUST be present here.
+3. Submission Package: <team_name>_submission.zip containing:
+   - output/ (matching_results.tsv, candidate_pairs.tsv)
+   - code/business_entity_resolution/src/ (runnable pipeline)
+   - code/business_entity_resolution/README.md and requirements.txt
+   - Documentation_template.md (filled-in methodology)
+4. Validation: Must pass `python3 utils/validate_submission.py --matching output/matching_results.tsv --candidate output/candidate_pairs.tsv --test-dir dataset/test` before uploading.

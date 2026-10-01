@@ -1,0 +1,10 @@
+Task: Business Entity Resolution (ER). Match Source 1 deduplicated reference records to noisy records in Source 2 and Source 3.
+Core Columns: entity_id (S1/S2/S3 prefix), business_name, business_address, country[cite: 16].
+
+CRITICAL CONSTRAINTS & DISQUALIFICATION RISKS:
+1. TAB-SEPARATED ONLY: All files are .tsv (tab-separated), NOT .csv[cite: 16]. Always use sep="\t" in pandas[cite: 16].
+2. STRICT FAIR-PLAY RULES: NO external APIs (OpenAI, Claude, etc.), NO external database lookups, NO geocoding APIs for address normalization, NO internet data augmentation. Automatic disqualification if violated[cite: 16].
+3. MODEL CONSTRAINTS: Must use open-source MIT or Apache 2.0 licensed models with at most 8 Billion parameters[cite: 16].
+4. UNSEEN COUNTRY: Training data contains "US" and "India". Test set additionally contains "France"[cite: 16]. NEVER filter, drop, or hard-code country labels to only US and India[cite: 16].
+5. EVALUATION METRIC: F_0.5 Score (macro-averaged per S1 entity)[cite: 16]. Precision is weighted 2x over recall ($F_{0.5} = \frac{1.25 \times Precision \times Recall}{0.25 \times Precision + Recall}$)[cite: 16]. False matches are heavily penalized.
+6. SINGLETONS: Source 1 entities with NO matches must have an empty matched_entity_ids field. Correctly predicting empty yields a perfect 1.0 score; guessing wrongly yields 0.0[cite: 16].
