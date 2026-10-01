@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Amazon ML Challenge 2026 - EC2 instance role for ER jobs. Grants read/write
+  on the team bucket only, so instances sync S3 without any user credentials.
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: hackathon-tensors-2026
+
+Resources:
+  ErMlEc2Role:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: er-ml-ec2-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+      Policies:
+        - PolicyName: team-bucket-read-write
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: ListTeamBucket
+                Effect: Allow
+                Action: s3:ListBucket
+                Resource: !Sub arn:${AWS::Partition}:s3:::${BucketName}
+              - Sid: ReadWriteTeamObjects
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                Resource: !Sub arn:${AWS::Partition}:s3:::${BucketName}/*
+      Tags:
+        - Key: Project
+          Value: amazon-ml-2026
+
+  ErMlEc2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      InstanceProfileName: er-ml-ec2-profile
+      Roles:
+        - !Ref ErMlEc2Role
+
+Outputs:
+  InstanceProfileName:
+    Value: !Ref ErMlEc2InstanceProfile
+  RoleArn:
+    Value: !GetAtt ErMlEc2Role.Arn
