@@ -1,0 +1,4 @@
+[     47s | 2,057 MB (peak 2,088)] [France] index over 259,452 Source 1 records built in 42s
+[    144s | 1,661 MB (peak 2,636)] [France] chunk 0: 50,000 targets | kept 267,451 of 6,517,621 pairs
+[   1978s | 1,963 MB (peak 3,583)] [France] chunk 20: 1,050,000 targets | kept 5,608,021 of 135,506,024 pairs
+[   2698s | 1,424 MB (peak 3,583)] candidates done: {"targets": 1434993, "pairs_scored": 184624138, "pairs_kept": 7671084, "runtime_s": 2698.0558938980103, "peak_mem_mb": 3582.6875}
