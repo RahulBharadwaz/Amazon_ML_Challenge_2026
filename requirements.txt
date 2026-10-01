@@ -1,4 +1,4 @@
-# Pinned dependencies for Amazon ML Challenge 2026 - Hackathon Tensors
+# Pinned dependencies for Amazon ML Challenge 2026 - Team Tensors
 # Compatible with Python 3.10, 3.11, and 3.12 (Linux / Windows / macOS)
 
 numpy>=1.26.0,<=2.2.3

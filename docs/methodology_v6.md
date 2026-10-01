@@ -1,7 +1,7 @@
 # ML Challenge 2026: Business Entity Resolution Solution
 
-**Team Name:** Hackathon Tensors  
-**Team Members:** Rahul M. & Team  
+**Team Name:** Tensors  
+**Team Members:** Rahul Bharadwaz Deevi (Team Leader), Sasank Reddy Baddigam, Kureti Nidhish  
 **Submission Date:** September 27, 2026  
 
 ---
