@@ -1,0 +1,55 @@
+[      1s | 1,476 MB (peak 1,438)] Source 1: 2,206,821 records indexed (frac 1.0); holdout 220,756
+[      4s | 1,777 MB (peak 1,702)] Links: 7,638,365 (763,696 holdout, 6,874,669 fit); 1,000,000 fit pairs sampled for learning
+[     39s | 1,499 MB (peak 1,866)]   train_source2.tsv: kept 936,301 target records (streamed)
+[     77s | 1,734 MB (peak 2,082)]   train_source3.tsv: kept 998,184 target records (streamed)
+[     81s | 1,794 MB (peak 2,082)]   [translit] 979 aligned word pairs, 955 used for EM, 950 dictionary words
+[     81s | 1,795 MB (peak 2,082)]   [translit] EM iter 1/6: 955 pairs aligned, 133 units, weighted log-lik -37,855
+[     82s | 1,795 MB (peak 2,082)]   [translit] EM iter 2/6: 955 pairs aligned, 133 units, weighted log-lik -30,639
+[     82s | 1,795 MB (peak 2,082)]   [translit] EM iter 3/6: 955 pairs aligned, 133 units, weighted log-lik -28,289
+[     82s | 1,795 MB (peak 2,082)]   [translit] EM iter 4/6: 955 pairs aligned, 133 units, weighted log-lik -27,575
+[     82s | 1,795 MB (peak 2,082)]   [translit] EM iter 5/6: 955 pairs aligned, 133 units, weighted log-lik -27,272
+[     82s | 1,795 MB (peak 2,082)]   [translit] EM iter 6/6: 955 pairs aligned, 133 units, weighted log-lik -26,988
+[     82s | 1,795 MB (peak 2,082)]   [phonetics] vowels=aeiouy | merged classes: ['st'] | drop aspiration-h=True
+[     82s | 1,795 MB (peak 2,082)]   [translit] char-model phonetic-key agreement 0.744 over 264,464 word tokens; samples: []
+[    128s | 1,905 MB (peak 3,972)]   [lexicon] name 35 entries e.g. [('privte', 'private'), ('pvt', 'private'), ('pivate', 'private'), ('privae', 'private'), ('prvate', 'private'), ('priate', 'private'), ('ltd', 'limited'), ('incorporated', 'inc'), ('footankle', 'foot'), ('domd', 'domdpc'), ('earnosethroat', 'ear'), ('earnose', 'ear')]
+[    128s | 1,904 MB (peak 3,972)]   [lexicon] addr 170 entries e.g. [('rd', 'road'), ('roa', 'road'), ('rad', 'road'), ('rod', 'road'), ('ohio', 'oh'), ('pl', 'place'), ('alabama', 'al'), ('texas', 'tx'), ('california', 'c'), ('ca', 'c'), ('cd', 'c'), ('cg', 'c')]
+[    128s | 1,904 MB (peak 3,972)]   [noise] 35 name tokens e.g. ['5ervices', 'aka', 'as', 'authority', 'c0m', 'center', 'co', 'com', 'company', 'corp', 'corporation', 'dba', 'district', 'doing', 'dr', 'fka', 'formerly', 'id', 'known', 'lnc', 'lndia', 'lp', 'mr', 'ms', 'nee', 'partners', 'service', 'services', 'shri', 'smt']
+[    128s | 1,904 MB (peak 3,972)]   [translit demo] Green Builders Pvt Ltd  <=>  ग्रीन बिल्डर्स प्रा. लि.  ->  green builders private limited
+[    128s | 1,904 MB (peak 3,972)]   [translit demo] United Technologies Private Limited  <=>  यूनाइटेड टेक्नोलॉजीज प्राइवेट लिमिटेड  ->  united technologies private limited
+[    128s | 1,904 MB (peak 3,972)]   [translit demo] Hitech Care Private Limited  <=>  हाईटेक केयर प्राइवेट लिमिटेड  ->  hitech care private limited
+[    128s | 1,904 MB (peak 3,972)]   [translit demo] Galaxy Business Private Limited  <=>  गैलेक्सी बिजनेस प्राइवेट लिमिटेड  ->  galaxy business private limited
+[    128s | 1,904 MB (peak 3,972)]   [translit demo] Shiva Ventures Private Limited  <=>  शिवा वेंचर्स प्राइवेट लिमिटेड  ->  shiv ventures private limited
+[    128s | 1,904 MB (peak 3,972)]   [translit demo] Shyam Hospitality Pvt Ltd  <=>  श्याम हॉस्पिटैलिटी प्रा. लि.  ->  shyam hospitality private limited
+[    128s | 1,904 MB (peak 3,972)]   [translit demo] Best Software Private Limited  <=>  बेस्ट सॉफ्टवेयर प्राइवेट लिमिटेड  ->  best software private limited
+[    128s | 1,904 MB (peak 3,972)]   [translit demo] Ss Builders  <=>  এসএস বিল্ডার্স  ->  sons builders
+[    152s | 2,008 MB (peak 3,972)]   [idf] fitted on 600,000 fit-fold S1 records; pruned from index: name 1,629 / addr 521 hashed features
+[    435s | 3,630 MB (peak 3,972)]   [encoder] epoch 1/3: 245 batches over 1,000,000 pairs, mean loss 0.0877, 205s
+[    641s | 3,526 MB (peak 3,972)]   [encoder] epoch 2/3: 245 batches over 1,000,000 pairs, mean loss 0.0069, 206s
+[    849s | 3,574 MB (peak 3,972)]   [encoder] epoch 3/3: 245 batches over 1,000,000 pairs, mean loss 0.0056, 207s
+[    850s | 2,274 MB (peak 3,972)] Queries: 954,500 (763,696 holdout links, 206,223 random targets)
+[    914s | 3,449 MB (peak 4,065)] [India] 883,188 S1 | 382,440 queries featurized and encoded
+[    958s | 2,891 MB (peak 4,065)] [India] name channel done (deep 35.9%)
+[    985s | 2,755 MB (peak 4,065)] [India] address channel done (deep 1.0%)
+[   1249s | 2,538 MB (peak 4,065)] [India] HNSW-SQ8 encoder channel done (deep 36.5%)
+[   1326s | 3,915 MB (peak 4,147)] [US] 1,323,633 S1 | 572,060 queries featurized and encoded
+[   1476s | 3,261 MB (peak 4,147)] [US] name channel done (deep 24.9%)
+[   1536s | 3,114 MB (peak 4,147)] [US] address channel done (deep 3.0%)
+[   1998s | 2,740 MB (peak 4,147)] [US] HNSW-SQ8 encoder channel done (deep 27.3%)
+========================================================================================
+  GATE G1 - V6 Target->S1 retrieval, 10% held-out training anchors
+========================================================================================
+  Holdout anchors 220,756 | true links 763,696 | S1 index 2,206,821 | K=10, deep K=100 (tie ratio 0.9)
+  Deep-search share of random targets     : name 28.7% | addr 3.8% | enc 31.6%
+  Recall  name 0.7943 | address 0.8647 | encoder 0.9528 | name+addr 0.9743
+  UNION RECALL (candidate ceiling)        : 0.9957
+  RRF-fused top-M recall                  : @1 0.9373 | @3 0.9604 | @5 0.9696 | @10 0.9792 | @20 0.9861 | @50 0.9926
+    India    links  306,234 | union 0.9949 | top5 0.9640 | name 0.7498 addr 0.8400 enc 0.9625
+    US       links  457,462 | union 0.9962 | top5 0.9733 | name 0.8240 addr 0.8812 enc 0.9463
+  By source: S2 0.9960 | S3 0.9954
+  Cross-country links (unreachable by partition): 0
+  Misses 3,298, of which identical-name + no-address (ambiguous): 831 -> union recall excluding them 0.9968
+  Oracle macro F0.5 ceiling               : union 0.9987 | fused_top3 0.9865 | fused_top5 0.9899 | fused_top10 0.9935 | fused_top20 0.9958
+  Volume per target: union 78.2 -> est. test pairs 779M (fused top10: 100M)
+  Runtime 2015s | peak process-tree memory 4,147 MB (budget 5,500 MB: OK)
+  GATE G1 (union recall >= 0.995): PASS
+========================================================================================

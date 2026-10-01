@@ -1,0 +1,53 @@
+[      2s | 1,381 MB (peak 1,362)] Source 1: 2,206,821 records indexed (frac 1.0); holdout 220,756
+[     11s | 1,622 MB (peak 1,613)] Links: 7,638,365 (763,696 holdout, 6,874,669 fit); 1,000,000 fit pairs sampled for learning
+[     14s | 1,937 MB (peak 2,855)]   train_source2.tsv: kept 936,301 target records
+[     16s | 2,363 MB (peak 2,980)]   train_source3.tsv: kept 998,184 target records
+[     24s | 2,410 MB (peak 2,980)]   [translit] 979 aligned word pairs, 955 used for EM, 950 dictionary words
+[     24s | 2,410 MB (peak 2,980)]   [translit] EM iter 1/6: 955 pairs aligned, 133 units, weighted log-lik -37,855
+[     24s | 2,410 MB (peak 2,980)]   [translit] EM iter 2/6: 955 pairs aligned, 133 units, weighted log-lik -30,639
+[     24s | 2,410 MB (peak 2,980)]   [translit] EM iter 3/6: 955 pairs aligned, 133 units, weighted log-lik -28,289
+[     24s | 2,410 MB (peak 2,980)]   [translit] EM iter 4/6: 955 pairs aligned, 133 units, weighted log-lik -27,575
+[     24s | 2,410 MB (peak 2,980)]   [translit] EM iter 5/6: 955 pairs aligned, 133 units, weighted log-lik -27,272
+[     24s | 2,410 MB (peak 2,980)]   [translit] EM iter 6/6: 955 pairs aligned, 133 units, weighted log-lik -26,988
+[     24s | 2,410 MB (peak 2,980)]   [phonetics] vowels=aeiouy | merged classes: ['st'] | drop aspiration-h=True
+[     24s | 2,410 MB (peak 2,980)]   [translit] char-model phonetic-key agreement 0.744 over 264,464 word tokens; samples: []
+[    109s | 1,954 MB (peak 3,792)]   [lexicon] name 35 entries e.g. [('privte', 'private'), ('pvt', 'private'), ('pivate', 'private'), ('privae', 'private'), ('prvate', 'private'), ('priate', 'private'), ('ltd', 'limited'), ('incorporated', 'inc'), ('footankle', 'foot'), ('domd', 'domdpc'), ('earnosethroat', 'ear'), ('earnose', 'ear')]
+[    109s | 1,954 MB (peak 3,792)]   [lexicon] addr 170 entries e.g. [('ohio', 'oh'), ('rd', 'road'), ('roa', 'road'), ('rad', 'road'), ('rod', 'road'), ('pl', 'place'), ('alabama', 'al'), ('texas', 'tx'), ('ave', 'avenue'), ('aveue', 'avenue'), ('avene', 'avenue'), ('avnue', 'avenue')]
+[    109s | 1,954 MB (peak 3,792)]   [noise] 35 name tokens e.g. ['5ervices', 'aka', 'as', 'authority', 'c0m', 'center', 'co', 'com', 'company', 'corp', 'corporation', 'dba', 'district', 'doing', 'dr', 'fka', 'formerly', 'id', 'known', 'lnc', 'lndia', 'lp', 'mr', 'ms', 'nee', 'partners', 'service', 'services', 'shri', 'smt']
+[    109s | 1,954 MB (peak 3,792)]   [translit demo] Green Builders Pvt Ltd  <=>  ग्रीन बिल्डर्स प्रा. लि.  ->  green builders private limited
+[    109s | 1,954 MB (peak 3,792)]   [translit demo] United Technologies Private Limited  <=>  यूनाइटेड टेक्नोलॉजीज प्राइवेट लिमिटेड  ->  united technologies private limited
+[    109s | 1,954 MB (peak 3,792)]   [translit demo] Hitech Care Private Limited  <=>  हाईटेक केयर प्राइवेट लिमिटेड  ->  hitech care private limited
+[    109s | 1,954 MB (peak 3,792)]   [translit demo] Galaxy Business Private Limited  <=>  गैलेक्सी बिजनेस प्राइवेट लिमिटेड  ->  galaxy business private limited
+[    109s | 1,954 MB (peak 3,792)]   [translit demo] Shiva Ventures Private Limited  <=>  शिवा वेंचर्स प्राइवेट लिमिटेड  ->  shiv ventures private limited
+[    109s | 1,954 MB (peak 3,792)]   [translit demo] Shyam Hospitality Pvt Ltd  <=>  श्याम हॉस्पिटैलिटी प्रा. लि.  ->  shyam hospitality private limited
+[    109s | 1,954 MB (peak 3,792)]   [translit demo] Best Software Private Limited  <=>  बेस्ट सॉफ्टवेयर प्राइवेट लिमिटेड  ->  best software private limited
+[    109s | 1,954 MB (peak 3,792)]   [translit demo] Ss Builders  <=>  এসএস বিল্ডার্স  ->  sons builders
+[    144s | 1,996 MB (peak 3,792)]   [idf] fitted on 600,000 fit-fold S1 records; pruned from index: name 1,629 / addr 521 hashed features
+[    515s | 3,508 MB (peak 3,792)]   [encoder] epoch 1/3: 245 batches over 1,000,000 pairs, mean loss 0.0877, 170s
+[    682s | 3,520 MB (peak 3,792)]   [encoder] epoch 2/3: 245 batches over 1,000,000 pairs, mean loss 0.0069, 167s
+[    843s | 2,936 MB (peak 3,792)]   [encoder] epoch 3/3: 245 batches over 1,000,000 pairs, mean loss 0.0056, 161s
+[    847s | 2,667 MB (peak 3,792)] Queries: 954,500 (763,696 holdout links, 206,223 random targets)
+[   1008s | 3,567 MB (peak 4,119)] [India] 883,188 S1 | 382,440 queries featurized
+[   1056s | 3,899 MB (peak 4,206)] [India] name channel done
+[   1091s | 3,592 MB (peak 4,206)] [India] address channel done
+[   1232s | 1,862 MB (peak 4,206)] [India] HNSW encoder channel done
+[   1545s | 1,699 MB (peak 4,206)] [US] 1,323,633 S1 | 572,060 queries featurized
+[   1820s | 2,898 MB (peak 4,206)] [US] name channel done
+[   1947s | 2,488 MB (peak 4,206)] [US] address channel done
+[   2317s | 2,007 MB (peak 4,206)] [US] HNSW encoder channel done
+========================================================================================
+  GATE G1 - V6 Target->S1 retrieval, 10% held-out training anchors
+========================================================================================
+  Holdout anchors 220,756 | true links 763,696 | S1 index 2,206,821 | K=10 per channel
+  Recall  name 0.6769 | address 0.8572 | encoder 0.9451 | name+addr 0.9533
+  UNION RECALL (candidate ceiling)        : 0.9889
+  RRF-fused top-M recall                  : @1 0.9465 | @3 0.9716 | @5 0.9798 | @10 0.9853 | @20 0.9884
+    India    links  306,234 | union 0.9878 | top5 0.9778 | name 0.6064 addr 0.8375 enc 0.9548
+    US       links  457,462 | union 0.9896 | top5 0.9812 | name 0.7242 addr 0.8703 enc 0.9386
+  By source: S2 0.9898 | S3 0.9880
+  Cross-country links (unreachable by partition): 0
+  Oracle macro F0.5 ceiling               : union 0.9967 | fused_top3 0.9910 | fused_top5 0.9938 | fused_top10 0.9956
+  Volume per target: union 27.3 -> est. test pairs 272M (top5: 50M)
+  Runtime 2326s | peak process-tree RSS 4,206 MB
+  GATE G1 (union recall >= 0.995): FAIL
+========================================================================================

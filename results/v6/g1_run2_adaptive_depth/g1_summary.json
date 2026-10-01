@@ -1,0 +1,93 @@
+{
+  "holdout_anchors": 220756,
+  "holdout_links": 763696,
+  "k_per_channel": 10,
+  "k_deep": 100,
+  "tie_ratio": 0.9,
+  "deep_share_all_queries": {
+    "name": 0.29306862231534836,
+    "addr": 0.022194866422210583,
+    "enc": 0.3098166579360922
+  },
+  "recall_name": 0.7942767802895393,
+  "recall_addr": 0.8646581885986047,
+  "recall_encoder": 0.9527586893214054,
+  "recall_name_or_addr": 0.9742554629067063,
+  "recall_union": 0.9956815277283108,
+  "recall_fused_top": {
+    "1": 0.9372891831304603,
+    "3": 0.9603729756342838,
+    "5": 0.969591303345834,
+    "10": 0.9791788879344661,
+    "20": 0.9861384634723764,
+    "50": 0.9925742703903124
+  },
+  "cross_country_links": 0,
+  "by_country": {
+    "India": {
+      "links": 306234,
+      "union": 0.9948927943990543,
+      "fused_top5": 0.9640209774224939,
+      "name": 0.7498057041347467,
+      "addr": 0.8400210296701215,
+      "enc": 0.9624796724073748
+    },
+    "US": {
+      "links": 457462,
+      "union": 0.9962095212279927,
+      "fused_top5": 0.9733201883435126,
+      "name": 0.8240465874761183,
+      "addr": 0.8811507841088441,
+      "enc": 0.9462512733298066
+    }
+  },
+  "by_source": {
+    "S2": {
+      "links": 369078,
+      "union": 0.9960116831672438
+    },
+    "S3": {
+      "links": 394618,
+      "union": 0.9953727402196555
+    }
+  },
+  "oracle_macro_f05": {
+    "union": 0.998731485277264,
+    "fused_top3": 0.9864535851625278,
+    "fused_top5": 0.9899309003054461,
+    "fused_top10": 0.9934525053130017,
+    "fused_top20": 0.9958167589709288
+  },
+  "ambiguity": {
+    "misses": 3298,
+    "ambiguous_identical_name_no_address": 831,
+    "recall_union_excluding_ambiguous": 0.9967661381764794
+  },
+  "volume": {
+    "mean_union_per_target": 78.1715036635099,
+    "deep_share_random_targets": {
+      "name": 0.28693210747588777,
+      "addr": 0.03828864869582927,
+      "enc": 0.3160559200477153
+    },
+    "mean_fused_top5_per_target": 5.0,
+    "mean_fused_top10_per_target": 10.0,
+    "mean_fused_top20_per_target": 19.992663281981155,
+    "est_test_pairs_union_M": 779.337763037188,
+    "est_test_pairs_top10_M": 99.69589
+  },
+  "timings_s": {
+    "load": 76.95661211013794,
+    "learn_text": 74.93975567817688,
+    "encoder": 696.9879620075226,
+    "channels": {
+      "featurize+encode": 140.2345850467682,
+      "name": 194.12271118164062,
+      "addr": 86.89126110076904,
+      "hnsw": 726.4469819068909
+    },
+    "ambiguity": 8.392669916152954
+  },
+  "runtime_s": 2015.2189629077911,
+  "peak_tree_mem_mb": 4147.48046875
+}
