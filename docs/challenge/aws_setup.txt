@@ -1,0 +1,39 @@
+AWS Free Tier & Infrastructure Specifications for Amazon ML Challenge:
+
+1. Resource Quotas & Limits (Per Account):
+- Base Credits: $100 upon sign-up, up to $200 total[cite: 17].
+- Top 500 Teams: Receive an additional $100 in credits at the 48-hour mark, redeemable via AWS Console > Billing > Credits[cite: 17, 18].
+- Amazon SageMaker (2-month trial): 250 hours of ml.t3.medium notebook usage + 50 hours of m4.xlarge or m5.xlarge training[cite: 17].
+- Amazon S3: 5 GB storage, 20,000 GET requests, 2,000 PUT requests per month[cite: 17].
+
+2. Central S3 Cross-Account Architecture (The "Option 1" Strategy):
+- Region: ap-south-1 (Mumbai). All teammates must operate in this region to prevent cross-region data transfer charges from eating credits[cite: 17].
+- Bucket Name: s3://hackathon-tensors-2026.
+- Encryption: Stick strictly to default S3 encryption or no encryption. Custom KMS keys will break cross-account decryption[cite: 17].
+
+3. IAM Bucket Policy for Cross-Account Sharing:
+To allow teammate accounts to pull datasets and model artifacts, the central bucket must use this exact JSON policy (replace <TEAMMATE_ACCOUNT_ID> with the 12-digit IDs):
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "arn:aws:iam::<TEAMMATE_ACCOUNT_ID>:root"
+    },
+    "Action": ["s3:GetObject", "s3:ListBucket"],
+    "Resource": [
+      "arn:aws:s3:::hackathon-tensors-2026",
+      "arn:aws:s3:::hackathon-tensors-2026/*"
+    ]
+  }]
+}
+
+4. Essential AWS CLI Commands for the AI Agent:
+- Upload model artifact to shared bucket: `aws s3 cp ./model.tar.gz s3://hackathon-tensors-2026/models/`[cite: 17].
+- Teammate pull command: `aws s3 cp s3://hackathon-tensors-2026/models/model.tar.gz s3://my-local-bucket/models/`[cite: 17].
+- Generate a 24-hour presigned URL to bypass IAM (Lazy Alternative): `aws s3 presign s3://hackathon-tensors-2026/models/model.tar.gz --expires-in 86400`[cite: 17].
+
+5. Hard Limitations (Do Not Attempt):
+- SageMaker Training Jobs cannot be shared cross-account. Only the final output artifacts (model.tar.gz) can be transferred via S3[cite: 17].
+- You cannot "resume" a training job in a teammate's account[cite: 17].
+- Both teammates must use the exact same framework version and container image (e.g., a PyTorch 2.0 model will not load in a PyTorch 1.x container)[cite: 17].
